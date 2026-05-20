@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>\\ SHUBHAM_DALVI //</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#e5e2e3",
+                    "surface-tint": "#b0c6ff",
+                    "surface-container": "#201f20",
+                    "on-tertiary-fixed-variant": "#004f54",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "on-secondary-fixed-variant": "#6f0096",
+                    "surface-variant": "#44464f",
+                    "secondary-fixed-dim": "#ecb2ff",
+                    "on-primary-fixed-variant": "#004397",
+                    "on-surface-variant": "#c5c6d0",
+                    "outline-variant": "#44464f",
+                    "on-primary-fixed": "#001b44",
+                    "on-secondary-fixed": "#2b003f",
+                    "on-tertiary-fixed": "#002022",
+                    "secondary-container": "#35004b",
+                    "on-secondary-container": "#f3daff",
+                    "on-primary": "#002d6f",
+                    "surface-container-low": "#1c1b1c",
+                    "on-tertiary": "#00363a",
+                    "primary-container": "#004397",
+                    "on-primary-container": "#d8e2ff",
+                    "primary-fixed": "#d8e2ff",
+                    "surface-container-high": "#2b292a",
+                    "on-surface-variant-fixed": "#44464f",
+                    "outline": "#8e9099",
+                    "surface-container-lowest": "#0e0e0f",
+                    "tertiary-fixed": "#a2eeff",
+                    "inverse-surface": "#313031",
+                    "secondary-fixed": "#f3daff",
+                    "tertiary-fixed-dim": "#80d5e5",
+                    "tertiary-container": "#004f54",
+                    "on-tertiary-container": "#c1ebf1",
+                    "primary": "#b0c6ff",
+                    "surface-container-highest": "#363435",
+                    "background": "#131314",
+                    "secondary": "#ecb2ff",
+                    "inverse-on-surface": "#f4f0f1",
+                    "on-background": "#e5e2e3",
+                    "surface": "#131314",
+                    "inverse-primary": "#005bc1",
+                    "surface-bright": "#39393a",
+                    "tertiary": "#80d5e5",
+                    "surface-dim": "#131314",
+                    "scrim": "#000000",
+                    "error-container": "#8c1d19",
+                    "on-error-container": "#f9dedc",
+                    "on-error": "#601410",
+                    "error": "#f2b8b5"
+            },
+            "fontFamily": {
+              "sans": ["Inter", "sans-serif"],
+              "mono": ["JetBrains Mono", "sans-serif"],
+              "heading": ["Space Grotesk", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #131314;
+            overflow-x: hidden;
+        }
+        .font-heading { font-family: 'Space Grotesk', sans-serif; }
+        .font-code { font-family: 'JetBrains Mono', monospace; }
+        
+        .bg-blob {
+            filter: blur(120px);
+            mix-blend-mode: screen;
+            transition: transform 0.5s ease-out;
+            will-change: transform;
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased selection:bg-primary selection:text-on-primary">
+
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="bg-blob absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-primary/10"></div>
+        <div class="bg-blob absolute top-1/2 -right-40 w-[500px] h-[500px] rounded-full bg-secondary/10"></div>
+        <div class="bg-blob absolute -bottom-20 left-1/3 w-[600px] h-[600px] rounded-full bg-tertiary/10"></div>
+    </div>
+
+<!-- Optimized Mobile Responsive Navigation Bar with Hamburger Menu -->
+<nav class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/30 px-4 md:px-6 py-4">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <!-- Top Row: Logo & Mobile Menu Button -->
+        <div class="flex items-center justify-between w-full md:w-auto">
+            <a class="font-heading text-lg md:text-xl font-bold tracking-wider text-primary-fixed-dim whitespace-nowrap" href="#">
+                SD//IT DEVELOPER
+            </a>
+            
+            <!-- Hamburger Button (Visible only on mobile) -->
+            <button id="menu-btn" class="block md:hidden text-primary-fixed-dim focus:outline-none" aria-label="Toggle Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Desktop Menu (Hidden on mobile, perfectly spaced on medium up screens) -->
+        <div class="hidden md:flex space-x-6 lg:space-x-8 font-code text-sm tracking-wide">
+            <a class="hover:text-primary-fixed-dim transition-colors" href="#profile">Profile</a>
+            <a class="hover:text-primary-fixed-dim transition-colors" href="#education">Education</a>
+            <a class="hover:text-primary-fixed-dim transition-colors" href="#skills">Skills</a>
+            <a class="hover:text-primary-fixed-dim transition-colors" href="#projects">Projects</a>
+            <a class="hover:text-primary-fixed-dim transition-colors" href="#contact">Contact</a>
+            <a class="hover:text-primary-fixed-dim transition-colors" href="#why-hire-me">Core Value</a>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default, toggled via JavaScript) -->
+        <div id="mobile-menu" class="hidden w-full flex-col space-y-3 pt-2 pb-4 font-code text-sm tracking-wide text-center border-t border-outline-variant/10 md:hidden">
+            <a class="block py-2 hover:text-primary-fixed-dim transition-colors mobile-link" href="#profile">Profile</a>
+            <a class="block py-2 hover:text-primary-fixed-dim transition-colors mobile-link" href="#education">Education</a>
+            <a class="block py-2 hover:text-primary-fixed-dim transition-colors mobile-link" href="#skills">Skills</a>
+            <a class="block py-2 hover:text-primary-fixed-dim transition-colors mobile-link" href="#projects">Projects</a>
+            <a class="block py-2 hover:text-primary-fixed-dim transition-colors mobile-link" href="#contact">Contact</a>
+            <a class="block py-2 hover:text-primary-fixed-dim transition-colors mobile-link" href="#why-hire-me">Core Value</a>
+        </div>
+    </div>
+</nav>
+
+    <!-- JavaScript to handle menu toggle behavior -->
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    // Toggle menu when clicking the hamburger button
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    });
+
+    // Automatically close the menu when a link is clicked
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+        });
+    });
+</script>
+
+    <main class="relative z-10 max-w-7xl mx-auto px-6 py-12 space-y-24">
+        
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-8" id="profile">
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center space-x-2 bg-surface-container-high border border-outline-variant/50 px-3 py-1 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+                    <span class="font-code text-xs tracking-widest text-tertiary uppercase">BSC_IT//DEVELOPER</span>
+                </div>
+                <h1 class="font-heading text-5xl md:text-7xl font-bold tracking-tight text-on-surface">
+                    SHUBHAM <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-tertiary">
+                        NAMDEV DALVI
+                    </span>
+                </h1>
+                <p class="text-on-surface-variant text-lg max-w-xl leading-relaxed">
+                    Motivated and enthusiastic B.Sc. IT student who has successfully completed the first year with a strong academic performance. Seeking an opportunity to apply my programming knowledge and technical skills in a dynamic organization. Eager to learn, grow, and contribute effectively while building a strong professional foundation.
+                </p>
+                <div class="pt-4">
+                    <a class="font-code inline-flex items-center space-x-2 bg-primary text-on-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary-fixed transition-all shadow-lg shadow-primary/20" href="#contact">
+                        <span>CONNECT_WITH_ME</span>
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-2xl">
+                <div class="bg-surface-container-high px-4 py-3 flex items-center justify-between border-b border-outline-variant">
+                    <div class="flex space-x-1.5">
+                        <div class="w-3 h-3 rounded-full bg-error/70"></div>
+                        <div class="w-3 h-3 rounded-full bg-secondary/70"></div>
+                        <div class="w-3 h-3 rounded-full bg-tertiary/70"></div>
+                    </div>
+                    <span class="font-code text-xs text-on-surface-variant/70">shubham_dalvi.py</span>
+                    <span class="w-4"></span>
+                </div>
+                <div class="p-6 font-code text-sm space-y-4 overflow-x-auto text-on-surface-variant">
+                    <div><span class="text-secondary">>>></span> <span class="text-primary">print</span>(user.status)</div>
+                    <div class="text-tertiary">"Fresher | Actively seeking first professional opportunity"</div>
+                    <div><span class="text-secondary">>>></span> user.location</div>
+                    <div class="text-on-surface">"Mumbai, Maharashtra, India"</div>
+                    <div><span class="text-secondary">>>></span> user.interests</div>
+                    <div class="text-on-surface-variant">[<span class="text-secondary">'Exploring new technologies'</span>, <span class="text-secondary">'Cricket'</span>, <span class="text-secondary">'Video Games'</span>]</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Foundations Section -->
+        <section class="space-y-8" id="education">
+            <h2 class="font-heading text-3xl font-bold tracking-tight">Academic Foundations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Jai Hind College Card -->
+                <div class="bg-surface-container border border-outline-variant/40 p-6 rounded-xl relative overflow-hidden group hover:border-primary/40 transition-all flex flex-col justify-between">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full pointer-events-none"></div>
+                    <div class="flex justify-between items-start gap-4">
+                        <div>
+                            <span class="font-code text-xs text-primary uppercase tracking-wider font-semibold">Undergraduate Degree</span>
+                            <h3 class="font-heading text-xl font-bold mt-2 text-on-surface">Jai Hind College, Mumbai</h3>
+                            <p class="text-on-surface-variant text-sm mt-1">B.Sc. IT (Pursuing)</p>
+                        </div>
+                        <!-- Jai Hind College Logo Placeholder -->
+                        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQF0t2vZTfeL8w/company-logo_200_200/company-logo_200_200/0/1696139600456/jai_hind_college_official_logo?e=2147483647&v=beta&t=QlSHJEq1vxdk-XDSa2PmmMJd7HBwdXcMcNU1XZyBgh4" alt="Jai Hind College Logo" class="w-28 h-28 md:w-32 md:h-32 object-contain rounded-xl border border-outline-variant/60 bg-white p-2 relative z-10 shrink-0 shadow-xl" />
+                    </div>
+                    <div class="mt-6 flex items-center justify-between border-t border-outline-variant/30 pt-4">
+                        <span class="font-code text-sm text-on-surface-variant">First Year Grade Record</span>
+                        <span class="font-heading text-2xl font-bold text-primary">8.545 CGPA</span>
+                    </div>
+                </div>
+
+                <!-- Gokhale College Card -->
+                <div class="bg-surface-container border border-outline-variant/40 p-6 rounded-xl relative overflow-hidden group hover:border-secondary/40 transition-all flex flex-col justify-between">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-secondary/5 rounded-bl-full pointer-events-none"></div>
+                    <div class="flex justify-between items-start gap-4">
+                        <div>
+                            <span class="font-code text-xs text-secondary uppercase tracking-wider font-semibold">Higher Secondary Certificate</span>
+                            <h3 class="font-heading text-xl font-bold mt-2 text-on-surface">Gokhale College, Borivali</h3>
+                            <p class="text-on-surface-variant text-sm mt-1">Science Stream Graduate</p>
+                        </div>
+                        <!-- Gokhale College Logo Placeholder -->
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5TUPGIxHPXMGDSgQ7qVdhKJJMCLJc2tyPgA&s" alt="Gokhale College Logo" class="w-28 h-28 md:w-32 md:h-32 object-contain rounded-xl border border-outline-variant/60 bg-white p-2 relative z-10 shrink-0 shadow-xl" />
+                    </div>
+                    <div class="mt-6 flex items-center justify-between border-t border-outline-variant/30 pt-4">
+                        <span class="font-code text-sm text-on-surface-variant">Final Examination Score</span>
+                        <span class="font-heading text-2xl font-bold text-secondary">72.00%</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Technical Capability Section -->
+        <section class="space-y-8" id="skills">
+            <h2 class="font-heading text-3xl font-bold tracking-tight">Technical Capability </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Languages Category with Logos -->
+                <div class="bg-surface-container/60 border border-outline-variant/30 p-5 rounded-xl space-y-4">
+                    <div class="flex items-center space-x-3 text-primary">
+                        <span class="material-symbols-outlined">terminal</span>
+                        <h4 class="font-heading font-bold text-lg text-on-surface">Languages</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="font-code text-xs bg-surface-container-high border border-outline-variant px-2.5 py-1 rounded text-on-surface-variant flex items-center gap-1.5">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" class="w-9 h-9" alt="C logo"/> C
+                        </span>
+                        <span class="font-code text-xs bg-surface-container-high border border-outline-variant px-2.5 py-1 rounded text-on-surface-variant flex items-center gap-1.5">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="w-16 h-16" alt="C++ logo"/> C++
+                        </span>
+                        <span class="font-code text-xs bg-surface-container-high border border-outline-variant px-2.5 py-1 rounded text-primary border-primary/20 flex items-center gap-1.5">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-10 h-10" alt="Python logo"/> Python
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Frameworks Category with Logos -->
+                <div class="bg-surface-container/60 border border-outline-variant/30 p-5 rounded-xl space-y-4">
+                    <div class="flex items-center space-x-3 text-secondary">
+                        <span class="material-symbols-outlined">layers</span>
+                        <h4 class="font-heading font-bold text-lg text-on-surface">Frameworks</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="font-code text-xs bg-surface-container-high border border-outline-variant px-2.5 py-1 rounded text-on-surface-variant flex items-center gap-1.5">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-9 h-9" alt="React logo"/> Basic React
+                        </span>
+                        <span class="font-code text-xs bg-surface-container-high border border-outline-variant px-2.5 py-1 rounded text-secondary border-secondary/20 flex items-center gap-1.5">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" class="w-9.5 h-9 invert" alt="Flask logo"/> Flask
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Databases Category with Logos -->
+                <div class="bg-surface-container/60 border border-outline-variant/30 p-5 rounded-xl space-y-4">
+                    <div class="flex items-center space-x-3 text-tertiary">
+                        <span class="material-symbols-outlined">database</span>
+                        <h4 class="font-heading font-bold text-lg text-on-surface">Databases</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="font-code text-xs bg-surface-container-high border border-outline-variant px-2.5 py-1 rounded text-tertiary border-tertiary/20 flex items-center gap-1.5">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="w-9 h-9" alt="MySQL logo"/> Basic MySQL
+                        </span>
+                        <span class="font-code text-xs bg-surface-container-high border border-outline-variant px-2.5 py-1 rounded text-on-surface-variant flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-[32px]">schema</span> ER Modeling
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Tools & Skills Category -->
+                <div class="bg-surface-container/60 border border-outline-variant/30 p-5 rounded-xl space-y-4">
+                    <div class="flex items-center space-x-3 text-on-surface">
+                        <span class="material-symbols-outlined">construction</span>
+                        <h4 class="font-heading font-bold text-lg text-on-surface">Tools & Skills</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="font-code text-xs bg-surface-container-high border border-outline-variant px-2.5 py-1 rounded text-on-surface-variant flex items-center gap-1.5">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" class="w-9 h-9" alt="Canva logo"/> Canva
+                        </span>
+                        <span class="font-code text-xs bg-surface-container-high border border-outline-variant px-2.5 py-1 rounded text-on-surface-variant flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-[32px]">description</span> MS Word
+                        </span>
+                        <span class="font-code text-xs bg-surface-container-high border border-outline-variant px-2.5 py-1 rounded text-on-surface-variant flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-[35px]">psychology</span> Problem Solving
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="space-y-8" id="projects">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <h2 class="font-heading text-3xl font-bold tracking-tight">Project Portfolio Showcase</h2>
+                    <p class="text-on-surface-variant text-sm mt-1">Production engineering examples and functional application proofs.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="bg-surface-container border border-outline-variant/40 rounded-xl overflow-hidden flex flex-col justify-between hover:border-primary/40 transition-all">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="font-code text-xs text-primary font-semibold tracking-wider">DESKTOP SYSTEM</span>
+                            <span class="material-symbols-outlined text-on-surface-variant text-xl">account_balance</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-on-surface">Bank Account Management</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            Developed a user-friendly desktop app with secure login and registration functionality using Tkinter GUI. Implemented full CRUD operations with MySQL for efficient data management, simulating real-world banking transactions.
+                        </p>
+                    </div>
+                    <div class="px-6 py-4 bg-surface-container-high/50 border-t border-outline-variant/30 flex gap-2">
+                        <span class="font-code text-[11px] bg-background border border-outline-variant px-2 py-0.5 rounded text-on-surface-variant">Tkinter</span>
+                        <span class="font-code text-[11px] bg-background border border-outline-variant px-2 py-0.5 rounded text-on-surface-variant">MySQL</span>
+                    </div>
+                </div>
+
+                <div class="bg-surface-container border border-outline-variant/40 rounded-xl overflow-hidden flex flex-col justify-between hover:border-secondary/40 transition-all">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="font-code text-xs text-secondary font-semibold tracking-wider">DATABASE ARCHITECTURE</span>
+                            <span class="material-symbols-outlined text-on-surface-variant text-xl">schema</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-on-surface">Student Course Manager</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            Designed and implemented a structured database system to manage student and course records data safely. Created an Entity-Relationship (ER) model to ensure optimal schema design, reducing redundancy and maximizing data speed.
+                        </p>
+                    </div>
+                    <div class="px-6 py-4 bg-surface-container-high/50 border-t border-outline-variant/30 flex gap-2">
+                        <span class="font-code text-[11px] bg-background border border-outline-variant px-2 py-0.5 rounded text-on-surface-variant">MySQL</span>
+                        <span class="font-code text-[11px] bg-background border border-outline-variant px-2 py-0.5 rounded text-on-surface-variant">ER Modeling</span>
+                    </div>
+                </div>
+
+                <div class="bg-surface-container border border-outline-variant/40 rounded-xl overflow-hidden flex flex-col justify-between hover:border-tertiary/40 transition-all">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="font-code text-xs text-tertiary font-semibold tracking-wider">WEB MICRO SERVICES</span>
+                            <span class="material-symbols-outlined text-on-surface-variant text-xl">widgets</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-on-surface">React Mini Applications</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            Built interactive modular frontend applications using React ecosystem components, including an operations Calculator and real-time state Counter components to test modern UI render loops.
+                        </p>
+                    </div>
+                    <div class="px-6 py-4 bg-surface-container-high/50 border-t border-outline-variant/30 flex gap-2">
+                        <span class="font-code text-[11px] bg-background border border-outline-variant px-2 py-0.5 rounded text-on-surface-variant">React</span>
+                        <span class="font-code text-[11px] bg-background border border-outline-variant px-2 py-0.5 rounded text-on-surface-variant">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="bg-surface-container border border-outline-variant/40 rounded-xl overflow-hidden flex flex-col justify-between hover:border-primary/40 transition-all">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="font-code text-xs text-primary font-semibold tracking-wider">FULL STACK INTEGRATION</span>
+                            <span class="material-symbols-outlined text-on-surface-variant text-xl">app_registration</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-on-surface">User Registration Engine</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            Developed a secure web-based gateway capturing validated registration data utilizing Flask framework backends. Implemented rigorous custom field checking routines to filter inputs prior to database commitment records.
+                        </p>
+                    </div>
+                    <div class="px-6 py-4 bg-surface-container-high/50 border-t border-outline-variant/30 flex gap-2">
+                        <span class="font-code text-[11px] bg-background border border-outline-variant px-2 py-0.5 rounded text-on-surface-variant">Flask</span>
+                        <span class="font-code text-[11px] bg-background border border-outline-variant px-2 py-0.5 rounded text-on-surface-variant">MySQL</span>
+                    </div>
+                </div>
+
+                <div class="bg-surface-container border border-outline-variant/40 rounded-xl overflow-hidden flex flex-col justify-between hover:border-secondary/40 transition-all">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="font-code text-xs text-secondary font-semibold tracking-wider">GUI DEVELOPMENT</span>
+                            <span class="material-symbols-outlined text-on-surface-variant text-xl">view_list</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-on-surface">Desktop Data CRUD Engine</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            Engineered a standalone desktop manager interface featuring persistent relational links to structured SQL tables. Features high-speed responsive grid layout bindings tracking structural records seamlessly.
+                        </p>
+                    </div>
+                    <div class="px-6 py-4 bg-surface-container-high/50 border-t border-outline-variant/30 flex gap-2">
+                        <span class="font-code text-[11px] bg-background border border-outline-variant px-2 py-0.5 rounded text-on-surface-variant">Tkinter</span>
+                        <span class="font-code text-[11px] bg-background border border-outline-variant px-2 py-0.5 rounded text-on-surface-variant">MySQL</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="space-y-8" id="contact">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <h2 class="font-heading text-3xl font-bold tracking-tight">Initiate Communication</h2>
+                <p class="text-on-surface-variant text-sm">Direct routes to request technical consultations, employment proposals, or professional connections.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-code">
+                <a href="mailto:dalvishubham217@gmail.com" class="bg-surface-container-lowest border border-outline-variant/60 p-5 rounded-xl hover:border-primary/40 transition-all text-center block group">
+                    <span class="material-symbols-outlined text-primary text-2xl mb-1 group-hover:scale-110 transition-transform">mail</span>
+                    <div class="text-[11px] text-on-surface-variant/60 uppercase tracking-wider">Secure Email</div>
+                    <div class="mt-1 text-sm font-semibold text-on-surface truncate">dalvishubham217@gmail.com</div>
+                </a>
+                
+                <a href="tel:+919372179569" class="bg-surface-container-lowest border border-outline-variant/60 p-5 rounded-xl hover:border-secondary/40 transition-all text-center block group">
+                    <span class="material-symbols-outlined text-secondary text-2xl mb-1 group-hover:scale-110 transition-transform">call</span>
+                    <div class="text-[11px] text-on-surface-variant/60 uppercase tracking-wider">Voice Terminal</div>
+                    <div class="mt-1 text-sm font-semibold text-on-surface">+91 9372179569</div>
+                </a>
+
+                <div class="bg-surface-container-lowest border border-outline-variant/60 p-5 rounded-xl text-center">
+                    <span class="material-symbols-outlined text-tertiary text-2xl mb-1">location_on</span>
+                    <div class="text-[11px] text-on-surface-variant/60 uppercase tracking-wider">Deployment Zone</div>
+                    <div class="mt-1 text-sm font-semibold text-on-surface">Mumbai, India</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-8" id="why-hire-me">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight">
+                    Why Embed Me In Your Team?
+                </h2>
+                <div class="h-0.5 w-20 bg-gradient-to-r from-primary to-tertiary mx-auto"></div>
+                <p class="text-on-surface-variant text-base max-w-xl mx-auto">
+                    An analysis of my structural competencies, execution speed, and developmental ceiling.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto font-sans">
+                <div class="bg-surface-container-lowest border border-outline-variant/40 p-6 rounded-xl space-y-4 relative overflow-hidden group">
+                    <div class="absolute -bottom-6 -right-6 text-primary/5 font-code text-8xl font-bold select-none group-hover:text-primary/10 transition-colors">01</div>
+                    <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined">analytics</span>
+                    </div>
+                    <h3 class="font-heading text-lg font-bold text-on-surface">Proven High-Caliber Trajectory</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        Maintaining a rigorous <strong class="text-primary">~8.545 CGPA</strong> at Jai Hind College, Mumbai. My academic data demonstrates discipline, top-tier analytical comprehension, and consistent conceptual execution under structure.
+                    </p>
+                </div>
+
+                <div class="bg-surface-container-lowest border border-outline-variant/40 p-6 rounded-xl space-y-4 relative overflow-hidden group">
+                    <div class="absolute -bottom-6 -right-6 text-secondary/5 font-code text-8xl font-bold select-none group-hover:text-secondary/10 transition-colors">02</div>
+                    <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+                        <span class="material-symbols-outlined">developer_board</span>
+                    </div>
+                    <h3 class="font-heading text-lg font-bold text-on-surface">Full-Stack Capability Matrix</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        Unlike traditional entry-level developers, I design functional architectural systems. I have actively built desktop applications (<span class="text-secondary">Tkinter</span>), structural relational backends (<span class="text-secondary">MySQL ER Modeling</span>), and modern web instances (<span class="text-secondary">Flask & React</span>).
+                    </p>
+                </div>
+
+                <div class="bg-surface-container-lowest border border-outline-variant/40 p-6 rounded-xl space-y-4 relative overflow-hidden group">
+                    <div class="absolute -bottom-6 -right-6 text-tertiary/5 font-code text-8xl font-bold select-none group-hover:text-tertiary/10 transition-colors">03</div>
+                    <div class="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary">
+                        <span class="material-symbols-outlined">bolt</span>
+                    </div>
+                    <h3 class="font-heading text-lg font-bold text-on-surface">Zero Legacy Baggage, Infinite Adaptability</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        As a motivated fresher, my operational objective is maximum learning velocity. I possess no technical debt or outdated paradigms; I absorb your enterprise workflows, tools, and practices cleanly at extreme speed.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-surface-container/40 border border-outline-variant/30 rounded-2xl p-8 md:p-12 space-y-8" id="contact-form">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <div class="inline-flex items-center space-x-2 bg-surface-container-high border border-outline-variant/40 px-3 py-1 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+                    <span class="font-code text-[11px] tracking-widest text-tertiary uppercase">DIRECT_MAIL_GATEWAY</span>
+                </div>
+                <h2 class="font-heading text-3xl font-bold tracking-tight">Initiate Communication</h2>
+                <p class="text-on-surface-variant text-sm">Fill out the form below to transmit your metrics directly to my inbox.</p>
+            </div>
+
+            <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT_HERE" method="POST" class="max-w-2xl mx-auto space-y-6">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="flex flex-col space-y-1.5">
+                <label class="font-code text-xs text-on-surface-variant uppercase tracking-wider">Company Name</label>
+                <div class="relative flex items-center">
+                    <span class="material-symbols-outlined text-sm text-outline absolute left-3 pointer-events-none">domain</span>
+                    <input type="text" name="company_name" placeholder="Acme Corp" required
+                           class="w-full font-code text-sm bg-surface-container-lowest text-on-surface border border-outline-variant rounded-lg pl-9 pr-4 py-2.5 focus:outline-none focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-all" />
+                </div>
+            </div>
+
+            <div class="flex flex-col space-y-1.5">
+                <label class="font-code text-xs text-on-surface-variant uppercase tracking-wider">Corporate Email</label>
+                <div class="relative flex items-center">
+                    <span class="material-symbols-outlined text-sm text-outline absolute left-3 pointer-events-none">mail</span>
+                    <input type="email" name="email" placeholder="hiring@company.com" required
+                           class="w-full font-code text-sm bg-surface-container-lowest text-on-surface border border-outline-variant rounded-lg pl-9 pr-4 py-2.5 focus:outline-none focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-all" />
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col space-y-1.5">
+            <label class="font-code text-xs text-on-surface-variant uppercase tracking-wider">Contact Number</label>
+            <div class="relative flex items-center">
+                <span class="material-symbols-outlined text-sm text-outline absolute left-3 pointer-events-none">call</span>
+                <input type="tel" name="phone_number" placeholder="+91 XXXXX XXXXX" required
+                       class="w-full font-code text-sm bg-surface-container-lowest text-on-surface border border-outline-variant rounded-lg pl-9 pr-4 py-2.5 focus:outline-none focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-all" />
+            </div>
+        </div>
+
+        <div class="flex flex-col space-y-1.5">
+            <label class="font-code text-xs text-on-surface-variant uppercase tracking-wider">What do you want from me?</label>
+            <div class="relative flex items-start">
+                <span class="material-symbols-outlined text-sm text-outline absolute left-3 top-3 pointer-events-none">description</span>
+                <textarea name="requirements" rows="4" placeholder="Describe the role, project, or schedule expectations..." required
+                          class="w-full font-code text-sm bg-surface-container-lowest text-on-surface border border-outline-variant rounded-lg pl-9 pr-4 py-2.5 focus:outline-none focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-all resize-none"></textarea>
+            </div>
+        </div>
+
+        <div class="pt-2">
+            <button type="submit" class="w-full font-code flex items-center justify-center space-x-2 bg-tertiary text-background py-3 rounded-lg font-bold hover:bg-white hover:text-black transition-all duration-300 shadow-lg tracking-wider">
+                <span>SEND</span>
+                <span class="material-symbols-outlined text-base">send</span>
+            </button>
+        </div>
+    </form>
+</section>
+
+    </main>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const blobs = document.querySelectorAll('.bg-blob');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            blobs.forEach((blob, index) => {
+                const speed = (index + 1) * 25;
+                blob.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
